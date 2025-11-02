@@ -384,7 +384,6 @@ async def reset_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def confirm_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """تایید نهایی ریست"""
     query = update.callback_query
-    await query.answer("نظرسنجی ریست شد! ✅")
     
     # استخراج نام روز از callback_data
     day_name = query.data.replace("confirm_reset_", "")
@@ -395,6 +394,9 @@ async def confirm_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # ریست کردن داده‌ها
     if chat_id in participants and day_name in participants[chat_id]:
         participants[chat_id][day_name] = {}
+    
+    # نمایش پیام موفقیت
+    await query.answer("نظرسنجی ریست شد! 🔄")
     
     keyboard = [
         [InlineKeyboardButton("✅ شرکت می‌کنم", callback_data=f"participate_{day_name}")],
@@ -461,7 +463,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await increase_count(update, context)
     elif query.data.startswith("decrease_"):
         await decrease_count(update, context)
-    elif query.data.startswith("confirm_"):
+    elif query.data.startswith("confirm_") and not query.data.startswith("confirm_reset_"):
         await confirm_participation(update, context)
     elif query.data.startswith("cancel_participation_"):
         await cancel_participation(update, context)
@@ -481,7 +483,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     """راه‌اندازی بات"""
     # توکن بات خود را اینجا قرار دهید
-    TOKEN = "8341465075:AAEAVWjYp-AvyhBFXHSU0LJeFmtK2F6-GvM"
+    TOKEN = "YOUR_BOT_TOKEN"
     
     # ساخت Application
     application = Application.builder().token(TOKEN).build()
