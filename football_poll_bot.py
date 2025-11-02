@@ -481,7 +481,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     """راه‌اندازی بات"""
     # توکن بات خود را اینجا قرار دهید
-    TOKEN = "8341465075:AAEAVWjYp-AvyhBFXHSU0LJeFmtK2F6-GvM"
+    TOKEN = "YOUR_BOT_TOKEN"
     
     # ساخت Application
     application = Application.builder().token(TOKEN).build()
