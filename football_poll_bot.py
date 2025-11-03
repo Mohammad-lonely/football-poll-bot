@@ -482,8 +482,15 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     """راه‌اندازی بات"""
-    # توکن بات خود را اینجا قرار دهید
-    TOKEN = "8341465075:AAEAVWjYp-AvyhBFXHSU0LJeFmtK2F6-GvM"
+    import os
+    
+    # توکن بات از environment variable
+    TOKEN = os.getenv("BOT_TOKEN")
+    
+    if not TOKEN:
+        print("خطا: توکن بات تنظیم نشده است!")
+        print("لطفاً در Railway یک متغیر محیطی با نام BOT_TOKEN ایجاد کنید.")
+        return
     
     # ساخت Application
     application = Application.builder().token(TOKEN).build()
