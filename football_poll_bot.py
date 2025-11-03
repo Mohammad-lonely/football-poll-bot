@@ -16,11 +16,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """پیام خوش‌آمدگویی"""
     await update.message.reply_text(
         "سلام! 👋\n\n"
-        "⚽️ **بات نظرسنجی فوتبال**\n\n"
+        "⚽️ <b>بات نظرسنجی فوتبال</b>\n\n"
         "برای شروع، یکی از دستورات زیر را انتخاب کنید:\n\n"
         "🟡 /thursday - نظرسنجی پنج‌شنبه\n"
         "🟢 /friday - نظرسنجی جمعه",
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def start_poll(update: Update, context: ContextTypes.DEFAULT_TYPE, day_name: str, day_emoji: str):
@@ -57,7 +57,7 @@ async def show_main_poll(message, chat_id, day_name, day_emoji):
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     message_text = (
-        f"⚽️ **نظرسنجی فوتبال - {day_emoji} {day_name}**\n\n"
+        f"⚽️ <b>نظرسنجی فوتبال - {day_emoji} {day_name}</b>\n\n"
         "برای ثبت‌نام روی دکمه زیر کلیک کنید:\n\n"
         f"👥 تعداد کل: {total_people} نفر\n"
         f"👤 تعداد شرکت‌کنندگان: {total_participants} نفر"
@@ -66,7 +66,7 @@ async def show_main_poll(message, chat_id, day_name, day_emoji):
     await message.reply_text(
         text=message_text,
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def participate(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -107,12 +107,12 @@ async def participate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await query.edit_message_text(
         text=f"سلام {user_name}! 👋\n\n"
-             f"**{day_emoji} {day_name}**\n\n"
+             f"<b>{day_emoji} {day_name}</b>\n\n"
              f"تعداد افرادی که می‌آورید را انتخاب کنید:\n"
              f"(خودتان + همراهان)\n\n"
-             f"تعداد فعلی: **{current_count} نفر**",
+             f"تعداد فعلی: <b>{current_count} نفر</b>",
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def increase_count(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -145,12 +145,12 @@ async def increase_count(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         await query.edit_message_text(
             text=f"سلام {user_name}! 👋\n\n"
-                 f"**{day_emoji} {day_name}**\n\n"
+                 f"<b>{day_emoji} {day_name}</b>\n\n"
                  f"تعداد افرادی که می‌آورید را انتخاب کنید:\n"
                  f"(خودتان + همراهان)\n\n"
-                 f"تعداد فعلی: **{current_count} نفر**",
+                 f"تعداد فعلی: <b>{current_count} نفر</b>",
             reply_markup=reply_markup,
-            parse_mode='Markdown'
+            parse_mode='HTML'
         )
 
 async def decrease_count(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -188,12 +188,12 @@ async def decrease_count(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         await query.edit_message_text(
             text=f"سلام {user_name}! 👋\n\n"
-                 f"**{day_emoji} {day_name}**\n\n"
+                 f"<b>{day_emoji} {day_name}</b>\n\n"
                  f"تعداد افرادی که می‌آورید را انتخاب کنید:\n"
                  f"(خودتان + همراهان)\n\n"
-                 f"تعداد فعلی: **{current_count} نفر**",
+                 f"تعداد فعلی: <b>{current_count} نفر</b>",
             reply_markup=reply_markup,
-            parse_mode='Markdown'
+            parse_mode='HTML'
         )
 
 async def confirm_participation(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -219,7 +219,7 @@ async def confirm_participation(update: Update, context: ContextTypes.DEFAULT_TY
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     message_text = (
-        f"⚽️ **نظرسنجی فوتبال - {day_emoji} {day_name}**\n\n"
+        f"⚽️ <b>نظرسنجی فوتبال - {day_emoji} {day_name}</b>\n\n"
         "برای ثبت‌نام روی دکمه زیر کلیک کنید:\n\n"
         f"👥 تعداد کل: {total_people} نفر\n"
         f"👤 تعداد شرکت‌کنندگان: {total_participants} نفر"
@@ -228,7 +228,7 @@ async def confirm_participation(update: Update, context: ContextTypes.DEFAULT_TY
     await query.edit_message_text(
         text=message_text,
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def cancel_participation(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -258,7 +258,7 @@ async def cancel_participation(update: Update, context: ContextTypes.DEFAULT_TYP
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     message_text = (
-        f"⚽️ **نظرسنجی فوتبال - {day_emoji} {day_name}**\n\n"
+        f"⚽️ <b>نظرسنجی فوتبال - {day_emoji} {day_name}</b>\n\n"
         "برای ثبت‌نام روی دکمه زیر کلیک کنید:\n\n"
         f"👥 تعداد کل: {total_people} نفر\n"
         f"👤 تعداد شرکت‌کنندگان: {total_participants} نفر"
@@ -267,7 +267,7 @@ async def cancel_participation(update: Update, context: ContextTypes.DEFAULT_TYP
     await query.edit_message_text(
         text=message_text,
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def show_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -287,15 +287,15 @@ async def show_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
     
     # ساخت لیست شرکت‌کنندگان
-    status_text = f"📊 **لیست شرکت‌کنندگان - {day_emoji} {day_name}:**\n\n"
+    status_text = f"📊 <b>لیست شرکت‌کنندگان - {day_emoji} {day_name}:</b>\n\n"
     total_people = 0
     
     for i, (user_id, data) in enumerate(participants[chat_id][day_name].items(), 1):
         status_text += f"{i}. {data['name']}: {data['count']} نفر\n"
         total_people += data['count']
     
-    status_text += f"\n👥 **جمع کل: {total_people} نفر**\n"
-    status_text += f"👤 **تعداد شرکت‌کنندگان: {len(participants[chat_id][day_name])} نفر**"
+    status_text += f"\n👥 <b>جمع کل: {total_people} نفر</b>\n"
+    status_text += f"👤 <b>تعداد شرکت‌کنندگان: {len(participants[chat_id][day_name])} نفر</b>"
     
     keyboard = [[InlineKeyboardButton("🔙 بازگشت", callback_data=f"back_to_poll_{day_name}")]]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -303,7 +303,7 @@ async def show_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.edit_message_text(
         text=status_text,
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def back_to_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -329,7 +329,7 @@ async def back_to_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     message_text = (
-        f"⚽️ **نظرسنجی فوتبال - {day_emoji} {day_name}**\n\n"
+        f"⚽️ <b>نظرسنجی فوتبال - {day_emoji} {day_name}</b>\n\n"
         "برای ثبت‌نام روی دکمه زیر کلیک کنید:\n\n"
         f"👥 تعداد کل: {total_people} نفر\n"
         f"👤 تعداد شرکت‌کنندگان: {total_participants} نفر"
@@ -338,7 +338,7 @@ async def back_to_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.edit_message_text(
         text=message_text,
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def reset_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -374,17 +374,16 @@ async def reset_poll(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await query.answer()
     await query.edit_message_text(
-        text=f"⚠️ **هشدار!**\n\n"
-             f"آیا مطمئن هستید که می‌خواهید نظرسنجی **{day_emoji} {day_name}** را ریست کنید؟\n\n"
+        text=f"⚠️ <b>هشدار!</b>\n\n"
+             f"آیا مطمئن هستید که می‌خواهید نظرسنجی <b>{day_emoji} {day_name}</b> را ریست کنید؟\n\n"
              f"❗️ تمام اطلاعات ثبت‌نام شده حذف خواهد شد!",
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def confirm_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """تایید نهایی ریست"""
     query = update.callback_query
-    await query.answer("نظرسنجی ریست شد! ✅")
     
     # استخراج نام روز از callback_data
     day_name = query.data.replace("confirm_reset_", "")
@@ -396,6 +395,9 @@ async def confirm_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if chat_id in participants and day_name in participants[chat_id]:
         participants[chat_id][day_name] = {}
     
+    # نمایش پیام موفقیت
+    await query.answer("نظرسنجی ریست شد! 🔄")
+    
     keyboard = [
         [InlineKeyboardButton("✅ شرکت می‌کنم", callback_data=f"participate_{day_name}")],
         [InlineKeyboardButton("📊 مشاهده لیست", callback_data=f"show_status_{day_name}")],
@@ -404,7 +406,7 @@ async def confirm_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     message_text = (
-        f"⚽️ **نظرسنجی فوتبال - {day_emoji} {day_name}**\n\n"
+        f"⚽️ <b>نظرسنجی فوتبال - {day_emoji} {day_name}</b>\n\n"
         "برای ثبت‌نام روی دکمه زیر کلیک کنید:\n\n"
         "👥 تعداد کل: 0 نفر\n"
         "👤 تعداد شرکت‌کنندگان: 0 نفر"
@@ -413,7 +415,7 @@ async def confirm_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.edit_message_text(
         text=message_text,
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def cancel_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -439,7 +441,7 @@ async def cancel_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
     
     message_text = (
-        f"⚽️ **نظرسنجی فوتبال - {day_emoji} {day_name}**\n\n"
+        f"⚽️ <b>نظرسنجی فوتبال - {day_emoji} {day_name}</b>\n\n"
         "برای ثبت‌نام روی دکمه زیر کلیک کنید:\n\n"
         f"👥 تعداد کل: {total_people} نفر\n"
         f"👤 تعداد شرکت‌کنندگان: {total_participants} نفر"
@@ -448,7 +450,7 @@ async def cancel_reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.edit_message_text(
         text=message_text,
         reply_markup=reply_markup,
-        parse_mode='Markdown'
+        parse_mode='HTML'
     )
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -461,7 +463,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await increase_count(update, context)
     elif query.data.startswith("decrease_"):
         await decrease_count(update, context)
-    elif query.data.startswith("confirm_"):
+    elif query.data.startswith("confirm_") and not query.data.startswith("confirm_reset_"):
         await confirm_participation(update, context)
     elif query.data.startswith("cancel_participation_"):
         await cancel_participation(update, context)
@@ -481,7 +483,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     """راه‌اندازی بات"""
     # توکن بات خود را اینجا قرار دهید
-    TOKEN = "8341465075:AAEAVWjYp-AvyhBFXHSU0LJeFmtK2F6-GvM"
+    TOKEN = "YOUR_BOT_TOKEN"
     
     # ساخت Application
     application = Application.builder().token(TOKEN).build()
